@@ -1,0 +1,51 @@
+services:
+  - type: web
+    name: chitsetu-backend
+    env: docker
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    branch: main
+    region: oregon
+    plan: free
+    healthCheckPath: /health
+    envVars:
+      - key: MONGO_URI
+        sync: false
+      - key: MONGO_DB_NAME
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_ANON_KEY
+        sync: false
+      - key: SUPABASE_JWT_SECRET
+        sync: false
+      - key: GOOGLE_CLIENT_ID
+        sync: false
+      - key: GOOGLE_CLIENT_SECRET
+        sync: false
+      - key: AUTH_CALLBACK_URL
+        sync: false
+      - key: NEXT_PUBLIC_AUTH_CALLBACK_URL
+        sync: false
+      - key: RAZORPAY_KEY_ID
+        sync: false
+      - key: RAZORPAY_KEY_SECRET
+        sync: false
+      - key: RESEND_API_KEY
+        sync: false
+      - key: RESEND_FROM_EMAIL
+        sync: false
+      - key: WEB3_RPC_URL
+        sync: false
+      - key: WEB3_PRIVATE_KEY
+        sync: false
+      - key: WALLET_ENCRYPTION_KEY
+        sync: false
+      - key: TOKEN_CONTRACT_ADDRESS
+        sync: false
+      - key: FACTORY_CONTRACT_ADDRESS
+        sync: false
+      - key: ML_SERVICE_URL
+        value: https://chitsetu.onrender.com

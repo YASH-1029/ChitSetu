@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: chitsetu-prod-ingress
+  namespace: chitsetu-prod
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: chitsetu-hackbyte.duckdns.org
+      http:
+        paths:
+          - path: /api
+            pathType: Prefix
+            backend:
+              service:
+                name: chitsetu-backend
+                port:
+                  number: 8080
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: chitsetu-frontend
+                port:
+                  number: 3000
